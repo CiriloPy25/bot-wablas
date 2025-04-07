@@ -1,4 +1,3 @@
-
 const express = require('express');
 const axios = require('axios');
 const app = express();
@@ -25,24 +24,34 @@ const sendMessage = async (phone, message) => {
   }
 };
 
-app.post('/webhook', async (req, res) => {
-  const { phone, message } = req.body;
+const mensajeBienvenida = `👋 ¡Bienvenido/a!
 
-  if (!phone || !message) return res.sendStatus(400);
+*¿Cómo podemos ayudarte hoy?*
 
-  const msg = message.toLowerCase();
+➯ Free Fire
+➯ Netflix Premium / VIP
+➯ Disney+ Premium
+➯ Max
+➯ Prime Video
+➯ Paramount
+➯ Crunchyroll
+➯ Spotify Premium
+➯ YouTube Premium
+➯ FlujoTv
+➯ FénixTv
+➯ Ib Player Pro
+➯ Iptv Smarters
+➯ Tigo Sport App
+➯ Apple Tv
+➯ Apple Music
+➯ Call Of Duty Mobile
+➯ Pubg Mobile
+➯ Clash Royale
+➯ Clash Of Clans
+➯ Roblox
+➯ 8 Ball Pool
+➯ Tarjeta Virtual
+➯ Monedas TikTok
 
-  if (msg.includes('netflix')) {
-    await sendMessage(phone, '🎬 Netflix:\nPremium 4 pantallas: 15.000 Gs\nVIP personalizado: 18.000 Gs');
-  } else if (msg.includes('fenix')) {
-    await sendMessage(phone, '🔥 FénixTV:\nAcceso completo por 30 días: 12.000 Gs');
-  } else {
-    await sendMessage(phone, '👋 Hola! Estos son nuestros servicios:\n📺 Netflix\n🔥 FénixTV\nEscribí el nombre del servicio que querés.');
-  }
-
-  res.sendStatus(200);
-});
-
-app.listen(3000, () => {
-  console.log('🚀 Bot corriendo en puerto 3000');
-});
+✨ *Elegí un servicio para ver los precios*
+Días
