@@ -38,6 +38,7 @@ const mensajeBienvenida = `👋 ¡Bienvenido/a!
 const formasPago = `\n\n💳 *Formas de Pago:*\n(*Giro* 🙅🏻‍♂ no carga de billetera)\n\n- *Titular:* Cirilo Guillen\n- *C.I.:* 5578346\n- *Alias:* 5578346\n\n➯ Ueno Bank: 619196233\n➯ Atlas: 1530937\n➯ Banco Familiar: 81-245664\n➯ Mango: 0972302296 - @ciriloguillen\n➯ Tigo Money: 0982832010\n➯ Personal Pay: 0972302296\n➯ Claro: 0992598035\n➯ Eko: 0992598035\n➯ Wally: 0982832010`;
 
 app.post("/", (req, res) => {
+  console.log("BODY RECIBIDO:", req.body);
   const mensaje = req.body.message?.toLowerCase() || "";
   const file = req.body.file;
 
