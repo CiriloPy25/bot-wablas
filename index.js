@@ -39,20 +39,29 @@ const formasPago = `\n\n💳 *Formas de Pago:*\n(*Giro* 🙅🏻‍♂ no carga 
 
 app.post("/", (req, res) => {
   const miNumero = "595971308233";
-  const remitente = req.body.sender?.replace(/\D/g, "") || "";
-  
-  // Si el mensaje es tuyo, no responder
+  const remitente = (req.body.sender || "").replace(/\D/g, "");
+
+  // No responder si el mensaje es tuyo
   if (remitente === miNumero) {
     return res.send({ status: "success", reply: null });
   }
 
   const mensaje = req.body.message?.toLowerCase() || "";
-  const file = req.body.file;
+
+  // Mensaje de bienvenida si el cliente saluda o pide ayuda
+  if (
+    mensaje.includes("hola") ||
+    mensaje.includes("buenas") ||
+    mensaje.includes("servicio") ||
+    mensaje.includes("ayuda")
+  ) {
+    return res.send({ status: "success", reply: mensajeBienvenida });
+  }
+
+  // Si no coincide con nada, no responder
+  return res.send({ status: "success", reply: null });
 });
 
-  if (mensaje.includes("hola") || mensaje.includes("servicio") || mensaje.includes("buenas") || mensaje.includes("ayuda")) {
-    return res.send(mensajeBienvenida);
-  }
 
   const respuestas = {
     "netflix": `*➯ Netflix Premium:*
