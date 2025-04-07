@@ -45,7 +45,7 @@ app.post("/", (req, res) => {
     return res.send("📷 Recibimos tu imagen. Vamos a revisarla y te avisamos ✅");
   }
 
-  if (mensaje.includes("hola") || mensaje.includes("servicio") || mensaje.includes("precio") || mensaje.includes("ayuda")) {
+  if (mensaje.includes("hola") || mensaje.includes("servicio") || mensaje.includes("buenas") || mensaje.includes("ayuda")) {
     return res.send(mensajeBienvenida);
   }
 
