@@ -38,14 +38,17 @@ const mensajeBienvenida = `👋 ¡Bienvenido/a!
 const formasPago = `\n\n💳 *Formas de Pago:*\n(*Giro* 🙅🏻‍♂ no carga de billetera)\n\n- *Titular:* Cirilo Guillen\n- *C.I.:* 5578346\n- *Alias:* 5578346\n\n➯ Ueno Bank: 619196233\n➯ Atlas: 1530937\n➯ Banco Familiar: 81-245664\n➯ Mango: 0972302296 - @ciriloguillen\n➯ Tigo Money: 0982832010\n➯ Personal Pay: 0972302296\n➯ Claro: 0992598035\n➯ Eko: 0992598035\n➯ Wally: 0982832010`;
 
 app.post("/", (req, res) => {
-  const miNumero = "595971308233";
-  const remitente = (req.body.sender || "").replace(/\D/g, "");
+const miNumero = "595971308233";
+const remitente = (req.body.sender || "")
+  .replace(/\D/g, "")         
+  .replace(/^0+/, "")         
+  .replace(/^595/, "");       
 
-  // No responder si el mensaje es tuyo
-  if (remitente === miNumero) {
-    return res.send({ status: "success", reply: null });
-  }
+if (remitente === "971308233") {
+  return res.send({ status: "success", reply: null });
+}
 
+  
   const mensaje = req.body.message?.toLowerCase() || "";
 
   // Si el cliente saluda o pide ayuda
