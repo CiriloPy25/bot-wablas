@@ -41,10 +41,10 @@ app.post("/", (req, res) => {
   const mensaje = req.body.message?.toLowerCase() || "";
   const file = req.body.file;
 
-if (req.body.file || req.body.file_url || req.body.type === "image") {
+if (req.body.file) {
   return res.send("📸 Recibimos tu imagen. Vamos a revisarla y te contactamos enseguida.");
 }
-
+  
   if (mensaje.includes("hola") || mensaje.includes("servicio") || mensaje.includes("buenas") || mensaje.includes("ayuda")) {
     return res.send(mensajeBienvenida);
   }
