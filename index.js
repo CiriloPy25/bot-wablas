@@ -42,7 +42,7 @@ app.post("/", (req, res) => {
   const mensaje = req.body.message?.toLowerCase() || "";
   const file = req.body.file;
 
-if (req.body.file) {
+if (req.body.messageType === "image") {
   return res.send("📸 Recibimos tu imagen. Vamos a revisarla y te contactamos enseguida.");
 }
   
