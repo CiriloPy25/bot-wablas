@@ -1,9 +1,8 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const app = express();
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 3000;
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 const mensajeBienvenida = `👋 ¡Bienvenido/a!
 
@@ -36,45 +35,152 @@ const mensajeBienvenida = `👋 ¡Bienvenido/a!
 
 ✨ *Escribí el nombre del servicio para ver los precios.*`;
 
-const formasPago = `
-💳 *Pagos solo por giro*  
-Titular: Cirilo Guillen  
-Alias / CI: 5578346  
-Tigo / Wally: 0982832010  
-Mango / Personal Pay: 0972302296  
-Claro / Eko: 0992598035  
-Ueno: 619196233  
-Atlas: 1530937  
-Familiar: 81-245664`;
-
-const respuestas = {
-  "netflix": `🎬 *Netflix Premium* (código):\n- 30.000 Gs : 30 días\n- 55.000 Gs : 60 días\n\n🎬 *Netflix Vip* (contraseña):\n- 45.000 Gs : 30 días\n- 80.000 Gs : 60 días\n\n${formasPago}`,
-  "free fire": `🔥 *Diamantes Free Fire:*\n- 10.000 Gs : 110\n- 25.000 Gs : 341\n- 40.000 Gs : 572\n- 75.000 Gs : 1155\n- 140.000 Gs : 2398\n- 325.000 Gs : 6160\n- 20.000 Gs : VIP semanal\n- 75.000 Gs : VIP mensual\n- 35.000 Gs : Pase de Nivel\n\n${formasPago}`,
-  "spotify": `🎧 *Spotify Premium:*\n- 25.000 Gs : 30 días\n- 45.000 Gs : 60 días\n\n${formasPago}`,
-  "tiktok": `🎁 *Monedas TikTok:*\n- 48.000 Gs : 471 monedas\n- 57.000 Gs : 566 monedas\n- 65.000 Gs : 660 monedas\n- 75.000 Gs : 754 monedas\n- 83.000 Gs : 849 monedas\n- 93.000 Gs : 943 monedas\n- 102.000 Gs : 1037 monedas\n\n${formasPago}`
-};
-
 app.post("/", (req, res) => {
-  const { message, file_url } = req.body;
-  const texto = message?.toLowerCase() || "";
+  const mensaje = req.body.message?.toLowerCase() || "";
+  const file = req.body.file;
 
-  if (file_url) {
-    return res.send("📸 Recibimos tu imagen. Vamos a revisarla y te contactamos enseguida.");
+  if (file) {
+    return res.send("📷 Recibimos tu imagen. Vamos a revisarla y te avisamos ✅");
   }
 
+  if (mensaje.includes("hola") || mensaje.includes("servicio") || mensaje.includes("precio") || mensaje.includes("ayuda")) {
+    return res.send(mensajeBienvenida);
+  }
+
+  const respuestas = {
+    "netflix": `*➯ Netflix Premium:*
+(Acceso por código)
+- 30.000 Gs : 30 Días
+- 55.000 Gs : 60 Días
+
+*➯ Netflix Vip:*
+(Acceso por contraseña)
+- 45.000 Gs : 30 Días
+- 80.000 Gs : 60 Días`,
+
+    "free fire": `*➯ Diamantes Free Fire:*
+- 10.000 Gs : 110
+- 25.000 Gs : 341
+- 40.000 Gs : 572
+- 75.000 Gs : 1155
+- 140.000 Gs : 2398
+- 325.000 Gs : 6160
+- 20.000 Gs : Vip Semanal
+- 75.000 Gs : Vip Mensual
+- 35.000 Gs : Pase de Nivel`,
+
+    "disney": `*➯ Disney Premium:*
+- 30.000 Gs : 30 Días
+- 50.000 Gs : 60 Días`,
+
+    "max": `*➯ Max:*
+- 20.000 Gs : 30 Días
+- 35.000 Gs : 60 Días`,
+
+    "prime": `*➯ Prime Video:*
+- 20.000 Gs : 30 Días
+- 35.000 Gs : 60 Días`,
+
+    "paramount": `*➯ Paramount:*
+- 20.000 Gs : 30 Días
+- 35.000 Gs : 60 Días`,
+
+    "crunchyroll": `*➯ Crunchyroll:*
+- 15.000 Gs : 30 Días
+- 25.000 Gs : 60 Días`,
+
+    "spotify": `*➯ Spotify Premium:*
+- 25.000 Gs : 30 Días
+- 45.000 Gs : 60 Días`,
+
+    "youtube": `*➯ YouTube Premium:*
+- 20.000 Gs : 30 Días
+- 35.000 Gs : 60 Días`,
+
+    "flujo": `*➯ FlujoTv Compartida (1 pantalla):*
+- 30.000 Gs : 30 Días
+- 50.000 Gs : 60 Días`,
+
+    "fenix": `*➯ FénixTv Compartida (1 pantalla):*
+- 15.000 Gs : 30 Días
+- 25.000 Gs : 60 Días`,
+
+    "ib player": `*➯ Ib Player Pro:*
+- 30.000 Gs : 30 Días
+- 50.000 Gs : 60 Días`,
+
+    "iptv": `*➯ Iptv Smarters (3 pantallas):*
+- 25.000 Gs : 30 Días
+- 40.000 Gs : 60 Días`,
+
+    "tigo": `*➯ Tigo Sport App (2 pantallas):*
+- 45.000 Gs : 30 Días
+- 80.000 Gs : 60 Días`,
+
+    "apple tv": `*➯ Apple Tv:*
+- 30.000 Gs : 90 Días`,
+
+    "apple music": `*➯ Apple Music:*
+- 30.000 Gs : 90 Días`,
+
+    "cod": `*➯ Cp Call of Duty Mobile:*
+- 12.000 Gs : 80 Cp
+- 50.000 Gs : 420 Cp
+- 90.000 Gs : 880 Cp`,
+
+    "pubg": `*➯ Uc Pubg Mobile:*
+- 13.000 Gs : 63 Uc
+- 47.000 Gs : 340 Uc
+- 90.000 Gs : 690 Uc
+- 195.000 Gs : 1875 Uc`,
+
+    "clash royale": `*➯ Pass Clash Royale:*
+- 100.000 Gs : Pase Diamante`,
+
+    "clash of clans": `*➯ Pass Clash of Clans:*
+- 65.000 Gs : Pase Oro`,
+
+    "roblox": `*➯ Moneda Roblox:*
+- 50.000 Gs : 500 Robux
+- 90.000 Gs : 1000 Robux
+- 135.000 Gs : 1500 Robux`,
+
+    "8 ball": `*➯ Pass 8 Ball Pool:*
+- 40.000 Gs : Premium Pass
+- 70.000 Gs : Élite Pass`,
+
+    "tarjeta": `*➯ Tarjeta Virtual:*
+(Play Store)
+- (10.000) : 15.000 Gs
+- (20.000) : 29.000 Gs
+- (30.000) : 40.000 Gs
+- (40.000) : 52.000 Gs
+- (50.000) : 63.000 Gs
+- (60.000) : 74.000 Gs
+- (70.000) : 85.000 Gs
+- (80.000) : 96.000 Gs
+- (90.000) : 107.000 Gs
+- (100.000) : 118.000 Gs`,
+
+    "tiktok": `*➯ Monedas TikTok:*
+- 48.000 Gs : 471 monedas
+- 57.000 Gs : 566 monedas
+- 65.000 Gs : 660 monedas
+- 75.000 Gs : 754 monedas
+- 83.000 Gs : 849 monedas
+- 93.000 Gs : 943 monedas
+- 102.000 Gs : 1037 monedas`
+  };
+
   for (const palabra in respuestas) {
-    if (texto.includes(palabra)) {
+    if (mensaje.includes(palabra)) {
       return res.send(respuestas[palabra]);
     }
   }
 
-  if (["hola", "servicio", "servicios", "ayuda", "precio"].some(p => texto.includes(p))) {
-    return res.send(mensajeBienvenida);
-  }
-
-  return res.send(""); // No responder si no coincide
+  return res.send(""); // no responde si no coincide
 });
 
 app.listen(PORT, () => {
-  console.log("Bot activo en el puerto " + PORT);
+  console.log("✅ Bot activo en el puerto " + PORT);
 });
