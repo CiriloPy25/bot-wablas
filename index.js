@@ -24,7 +24,7 @@ const sendMessage = async (phone, message) => {
   }
 };
 
-const mensajeBienvenida = \`👋 ¡Bienvenido/a!
+const mensajeBienvenida = `👋 ¡Bienvenido/a!
 
 *¿Cómo podemos ayudarte hoy?*
 
