@@ -35,6 +35,8 @@ const mensajeBienvenida = `👋 ¡Bienvenido/a!
 
 ✨ *Escribí el nombre del servicio para ver los precios.*`;
 
+const formasPago = `\n\n💳 *Formas de Pago:*\n(*Giro* 🙅🏻‍♂ no carga de billetera)\n\n- *Titular:* Cirilo Guillen\n- *C.I.:* 5578346\n- *Alias:* 5578346\n\n➯ Ueno Bank: 619196233\n➯ Atlas: 1530937\n➯ Banco Familiar: 81-245664\n➯ Mango: 0972302296 - @ciriloguillen\n➯ Tigo Money: 0982832010\n➯ Personal Pay: 0972302296\n➯ Claro: 0992598035\n➯ Eko: 0992598035\n➯ Wally: 0982832010`;
+
 app.post("/", (req, res) => {
   const mensaje = req.body.message?.toLowerCase() || "";
   const file = req.body.file;
@@ -56,7 +58,7 @@ app.post("/", (req, res) => {
 *➯ Netflix Vip:*
 (Acceso por contraseña)
 - 45.000 Gs : 30 Días
-- 80.000 Gs : 60 Días`,
+- 80.000 Gs : 60 Días${formasPago}`,
 
     "free fire": `*➯ Diamantes Free Fire:*
 - 10.000 Gs : 110
@@ -67,87 +69,87 @@ app.post("/", (req, res) => {
 - 325.000 Gs : 6160
 - 20.000 Gs : Vip Semanal
 - 75.000 Gs : Vip Mensual
-- 35.000 Gs : Pase de Nivel`,
+- 35.000 Gs : Pase de Nivel${formasPago}`,
 
     "disney": `*➯ Disney Premium:*
 - 30.000 Gs : 30 Días
-- 50.000 Gs : 60 Días`,
+- 50.000 Gs : 60 Días${formasPago}`,
 
     "max": `*➯ Max:*
 - 20.000 Gs : 30 Días
-- 35.000 Gs : 60 Días`,
+- 35.000 Gs : 60 Días${formasPago}`,
 
     "prime": `*➯ Prime Video:*
 - 20.000 Gs : 30 Días
-- 35.000 Gs : 60 Días`,
+- 35.000 Gs : 60 Días${formasPago}`,
 
     "paramount": `*➯ Paramount:*
 - 20.000 Gs : 30 Días
-- 35.000 Gs : 60 Días`,
+- 35.000 Gs : 60 Días${formasPago}`,
 
     "crunchyroll": `*➯ Crunchyroll:*
 - 15.000 Gs : 30 Días
-- 25.000 Gs : 60 Días`,
+- 25.000 Gs : 60 Días${formasPago}`,
 
     "spotify": `*➯ Spotify Premium:*
 - 25.000 Gs : 30 Días
-- 45.000 Gs : 60 Días`,
+- 45.000 Gs : 60 Días${formasPago}`,
 
     "youtube": `*➯ YouTube Premium:*
 - 20.000 Gs : 30 Días
-- 35.000 Gs : 60 Días`,
+- 35.000 Gs : 60 Días${formasPago}`,
 
     "flujo": `*➯ FlujoTv Compartida (1 pantalla):*
 - 30.000 Gs : 30 Días
-- 50.000 Gs : 60 Días`,
+- 50.000 Gs : 60 Días${formasPago}`,
 
     "fenix": `*➯ FénixTv Compartida (1 pantalla):*
 - 15.000 Gs : 30 Días
-- 25.000 Gs : 60 Días`,
+- 25.000 Gs : 60 Días${formasPago}`,
 
     "ib player": `*➯ Ib Player Pro:*
 - 30.000 Gs : 30 Días
-- 50.000 Gs : 60 Días`,
+- 50.000 Gs : 60 Días${formasPago}`,
 
     "iptv": `*➯ Iptv Smarters (3 pantallas):*
 - 25.000 Gs : 30 Días
-- 40.000 Gs : 60 Días`,
+- 40.000 Gs : 60 Días${formasPago}`,
 
     "tigo": `*➯ Tigo Sport App (2 pantallas):*
 - 45.000 Gs : 30 Días
-- 80.000 Gs : 60 Días`,
+- 80.000 Gs : 60 Días${formasPago}`,
 
     "apple tv": `*➯ Apple Tv:*
-- 30.000 Gs : 90 Días`,
+- 30.000 Gs : 90 Días${formasPago}`,
 
     "apple music": `*➯ Apple Music:*
-- 30.000 Gs : 90 Días`,
+- 30.000 Gs : 90 Días${formasPago}`,
 
     "cod": `*➯ Cp Call of Duty Mobile:*
 - 12.000 Gs : 80 Cp
 - 50.000 Gs : 420 Cp
-- 90.000 Gs : 880 Cp`,
+- 90.000 Gs : 880 Cp${formasPago}`,
 
     "pubg": `*➯ Uc Pubg Mobile:*
 - 13.000 Gs : 63 Uc
 - 47.000 Gs : 340 Uc
 - 90.000 Gs : 690 Uc
-- 195.000 Gs : 1875 Uc`,
+- 195.000 Gs : 1875 Uc${formasPago}`,
 
     "clash royale": `*➯ Pass Clash Royale:*
-- 100.000 Gs : Pase Diamante`,
+- 100.000 Gs : Pase Diamante${formasPago}`,
 
     "clash of clans": `*➯ Pass Clash of Clans:*
-- 65.000 Gs : Pase Oro`,
+- 65.000 Gs : Pase Oro${formasPago}`,
 
     "roblox": `*➯ Moneda Roblox:*
 - 50.000 Gs : 500 Robux
 - 90.000 Gs : 1000 Robux
-- 135.000 Gs : 1500 Robux`,
+- 135.000 Gs : 1500 Robux${formasPago}`,
 
     "8 ball": `*➯ Pass 8 Ball Pool:*
 - 40.000 Gs : Premium Pass
-- 70.000 Gs : Élite Pass`,
+- 70.000 Gs : Élite Pass${formasPago}`,
 
     "tarjeta": `*➯ Tarjeta Virtual:*
 (Play Store)
@@ -160,7 +162,7 @@ app.post("/", (req, res) => {
 - (70.000) : 85.000 Gs
 - (80.000) : 96.000 Gs
 - (90.000) : 107.000 Gs
-- (100.000) : 118.000 Gs`,
+- (100.000) : 118.000 Gs${formasPago}`,
 
     "tiktok": `*➯ Monedas TikTok:*
 - 48.000 Gs : 471 monedas
@@ -169,7 +171,7 @@ app.post("/", (req, res) => {
 - 75.000 Gs : 754 monedas
 - 83.000 Gs : 849 monedas
 - 93.000 Gs : 943 monedas
-- 102.000 Gs : 1037 monedas`
+- 102.000 Gs : 1037 monedas${formasPago}`
   };
 
   for (const palabra in respuestas) {
@@ -178,7 +180,7 @@ app.post("/", (req, res) => {
     }
   }
 
-  return res.send(""); // no responde si no coincide
+  return res.send("");
 });
 
 app.listen(PORT, () => {
