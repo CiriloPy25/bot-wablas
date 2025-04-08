@@ -182,7 +182,7 @@ const respuestas = {
 app.post("/", (req, res) => {
   const mensaje = (req.body.message || "").trim();
 
-  if (["hola", "servicio", "servicios", "precios", "ayuda"].includes(mensaje.toLowerCase())) {
+  if (["bienvenido", "servicio", "servicios", "precios", "ayuda"].includes(mensaje.toLowerCase())) {
 res.set('Content-Type', 'text/plain');
 return res.send(mensajeBienvenida);
 }
