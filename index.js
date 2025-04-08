@@ -68,7 +68,7 @@ const respuestas = {
 - 75.000 Gs : Vip Mensual
 - 35.000 Gs : Pase de Nivel${formasPago}`,
 
-  "2": `*➯ Netflix Premium:*
+  "2, netflix": `*➯ Netflix Premium:*
 (Acceso por código)
 - 30.000 Gs : 30 días
 - 55.000 Gs : 60 días
