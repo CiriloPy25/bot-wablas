@@ -197,6 +197,10 @@ return res.send(respuestas[mensaje]);
   
 });
 
+app.get("/", (req, res) => {
+  res.send("Bot online ✅");
+});
+
 app.listen(PORT, () => {
   console.log("✅ Bot activo en el puerto " + PORT);
 });
