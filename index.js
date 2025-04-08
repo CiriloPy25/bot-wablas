@@ -4,62 +4,189 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-const mensajeBienvenida = `👋 *¡Bienvenido/a!*
+const mensajeBienvenida = `👋 ¡Bienvenido/a!
 
-*¿Qué servicio te interesa? Responde con un número:*
+*¿Cómo podemos ayudarte hoy?*
 
-🔵 1️⃣ Netflix Premium / Vip  
-🔵 2️⃣ Disney+ Premium  
-🔵 3️⃣ Max  
-🔵 4️⃣ Prime Video  
-🔵 5️⃣ Paramount  
-🔵 6️⃣ Crunchyroll  
-🔵 7️⃣ Spotify Premium  
-🔵 8️⃣ YouTube Premium  
-🔵 9️⃣ FlujoTv  
-🔵 🔟 FénixTv  
-🔵 1️⃣1️⃣ Ib Player Pro  
-🔵 1️⃣2️⃣ IPTV Smarters  
-🔵 1️⃣3️⃣ Tigo Sport App  
-🔵 1️⃣4️⃣ Apple Tv  
-🔵 1️⃣5️⃣ Apple Music  
-🔵 1️⃣6️⃣ Free Fire  
-🔵 1️⃣7️⃣ Call Of Duty Mobile  
-🔵 1️⃣8️⃣ Pubg Mobile  
-🔵 1️⃣9️⃣ Clash Royale  
-🔵 2️⃣0️⃣ Clash Of Clans  
-🔵 2️⃣1️⃣ Roblox  
-🔵 2️⃣2️⃣ 8 Ball Pool  
-🔵 2️⃣3️⃣ Tarjeta Virtual  
-🔵 2️⃣4️⃣ Monedas TikTok
+➯ Free Fire
+➯ Netflix Premium / VIP
+➯ Disney+ Premium
+➯ Max
+➯ Prime Video
+➯ Paramount
+➯ Crunchyroll
+➯ Spotify Premium
+➯ YouTube Premium
+➯ FlujoTv
+➯ FénixTv
+➯ Ib Player Pro
+➯ Iptv Smarters
+➯ Tigo Sport App
+➯ Apple Tv
+➯ Apple Music
+➯ Call Of Duty Mobile
+➯ Pubg Mobile
+➯ Clash Royale
+➯ Clash Of Clans
+➯ Roblox
+➯ 8 Ball Pool
+➯ Tarjeta Virtual
+➯ Monedas TikTok
 
-📍 *Responde solo con el número del servicio.*
+✨ *Escribí el nombre del servicio para ver los precios.*`;
 
-📸 *Para reclamos o comprobantes:* envía una imagen.
-`;
+const formasPago = `\n\n💳 *Formas de Pago:*\n(*Giro* 🙅🏻‍♂ no carga de billetera)\n\n- *Titular:* Cirilo Guillen\n- *C.I.:* 5578346\n- *Alias:* 5578346\n\n➯ Ueno Bank: 619196233\n➯ Atlas: 1530937\n➯ Banco Familiar: 81-245664\n➯ Mango: 0972302296 - @ciriloguillen\n➯ Tigo Money: 0982832010\n➯ Personal Pay: 0972302296\n➯ Claro: 0992598035\n➯ Eko: 0992598035\n➯ Wally: 0982832010`;
 
-const formasPago = `
-💳 *Formas de Pago:*
-(*Giro* 🙅🏻‍♂ no carga de billetera)
+app.post("/", (req, res) => {
+  const mensaje = req.body.message?.toLowerCase() || "";
+  const file = req.body.file;
 
-- *Titular:* Cirilo Guillen
-- *C.I.:* 5578346
-- *Alias:* 5578346
+  if (file) {
+    return res.send("📷 Recibimos tu imagen. Vamos a revisarla y te avisamos ✅");
+  }
 
-➯ Ueno Bank: 619196233
-➯ Atlas: 1530937
-➯ Banco Familiar: 81-245664
-➯ Mango: 0972302296 - @ciriloguillen
-➯ Tigo Money: 0982832010
-➯ Personal Pay: 0972302296
-➯ Claro: 0992598035
-➯ Eko: 0992598035
-➯ Wally: 0982832010`;
+  if (mensaje.includes("hola") || mensaje.includes("servicio") || mensaje.includes("precio") || mensaje.includes("ayuda")) {
+    return res.send(mensajeBienvenida);
+  }
 
-const respuestas = {
-  "1": `*Netflix Premium:* 30.000 Gs - 30 días\n*Netflix Vip:* 45.000 Gs - 30 días${formasPago}`,
-  "2": `*Disney+ Premium:* 30.000 Gs - 30 días${formasPago}`,
-  "3": `*Max:* 20.000 Gs - 30 días${formasPago}`,
+  const respuestas = {
+    "netflix": `*➯ Netflix Premium:*
+(Acceso por código)
+- 30.000 Gs : 30 Días
+- 55.000 Gs : 60 Días
+
+*➯ Netflix Vip:*
+(Acceso por contraseña)
+- 45.000 Gs : 30 Días
+- 80.000 Gs : 60 Días${formasPago}`,
+
+    "free fire": `*➯ Diamantes Free Fire:*
+- 10.000 Gs : 110
+- 25.000 Gs : 341
+- 40.000 Gs : 572
+- 75.000 Gs : 1155
+- 140.000 Gs : 2398
+- 325.000 Gs : 6160
+- 20.000 Gs : Vip Semanal
+- 75.000 Gs : Vip Mensual
+- 35.000 Gs : Pase de Nivel${formasPago}`,
+
+    "disney": `*➯ Disney Premium:*
+- 30.000 Gs : 30 Días
+- 50.000 Gs : 60 Días${formasPago}`,
+
+    "max": `*➯ Max:*
+- 20.000 Gs : 30 Días
+- 35.000 Gs : 60 Días${formasPago}`,
+
+    "prime": `*➯ Prime Video:*
+- 20.000 Gs : 30 Días
+- 35.000 Gs : 60 Días${formasPago}`,
+
+    "paramount": `*➯ Paramount:*
+- 20.000 Gs : 30 Días
+- 35.000 Gs : 60 Días${formasPago}`,
+
+    "crunchyroll": `*➯ Crunchyroll:*
+- 15.000 Gs : 30 Días
+- 25.000 Gs : 60 Días${formasPago}`,
+
+    "spotify": `*➯ Spotify Premium:*
+- 25.000 Gs : 30 Días
+- 45.000 Gs : 60 Días${formasPago}`,
+
+    "youtube": `*➯ YouTube Premium:*
+- 20.000 Gs : 30 Días
+- 35.000 Gs : 60 Días${formasPago}`,
+
+    "flujo": `*➯ FlujoTv Compartida (1 pantalla):*
+- 30.000 Gs : 30 Días
+- 50.000 Gs : 60 Días${formasPago}`,
+
+    "fenix": `*➯ FénixTv Compartida (1 pantalla):*
+- 15.000 Gs : 30 Días
+- 25.000 Gs : 60 Días${formasPago}`,
+
+    "ib player": `*➯ Ib Player Pro:*
+- 30.000 Gs : 30 Días
+- 50.000 Gs : 60 Días${formasPago}`,
+
+    "iptv": `*➯ Iptv Smarters (3 pantallas):*
+- 25.000 Gs : 30 Días
+- 40.000 Gs : 60 Días${formasPago}`,
+
+    "tigo": `*➯ Tigo Sport App (2 pantallas):*
+- 45.000 Gs : 30 Días
+- 80.000 Gs : 60 Días${formasPago}`,
+
+    "apple tv": `*➯ Apple Tv:*
+- 30.000 Gs : 90 Días${formasPago}`,
+
+    "apple music": `*➯ Apple Music:*
+- 30.000 Gs : 90 Días${formasPago}`,
+
+    "cod": `*➯ Cp Call of Duty Mobile:*
+- 12.000 Gs : 80 Cp
+- 50.000 Gs : 420 Cp
+- 90.000 Gs : 880 Cp${formasPago}`,
+
+    "pubg": `*➯ Uc Pubg Mobile:*
+- 13.000 Gs : 63 Uc
+- 47.000 Gs : 340 Uc
+- 90.000 Gs : 690 Uc
+- 195.000 Gs : 1875 Uc${formasPago}`,
+
+    "clash royale": `*➯ Pass Clash Royale:*
+- 100.000 Gs : Pase Diamante${formasPago}`,
+
+    "clash of clans": `*➯ Pass Clash of Clans:*
+- 65.000 Gs : Pase Oro${formasPago}`,
+
+    "roblox": `*➯ Moneda Roblox:*
+- 50.000 Gs : 500 Robux
+- 90.000 Gs : 1000 Robux
+- 135.000 Gs : 1500 Robux${formasPago}`,
+
+    "8 ball": `*➯ Pass 8 Ball Pool:*
+- 40.000 Gs : Premium Pass
+- 70.000 Gs : Élite Pass${formasPago}`,
+
+    "tarjeta": `*➯ Tarjeta Virtual:*
+(Play Store)
+- (10.000) : 15.000 Gs
+- (20.000) : 29.000 Gs
+- (30.000) : 40.000 Gs
+- (40.000) : 52.000 Gs
+- (50.000) : 63.000 Gs
+- (60.000) : 74.000 Gs
+- (70.000) : 85.000 Gs
+- (80.000) : 96.000 Gs
+- (90.000) : 107.000 Gs
+- (100.000) : 118.000 Gs${formasPago}`,
+
+    "tiktok": `*➯ Monedas TikTok:*
+- 48.000 Gs : 471 monedas
+- 57.000 Gs : 566 monedas
+- 65.000 Gs : 660 monedas
+- 75.000 Gs : 754 monedas
+- 83.000 Gs : 849 monedas
+- 93.000 Gs : 943 monedas
+- 102.000 Gs : 1037 monedas${formasPago}`
+  };
+
+  for (const palabra in respuestas) {
+    if (mensaje.includes(palabra)) {
+      return res.send(respuestas[palabra]);
+    }
+  }
+
+  return res.send("");
+});
+
+app.listen(PORT, () => {
+  console.log("✅ Bot activo en el puerto " + PORT);
+});
+
   "4": `*Prime Video:* 20.000 Gs - 30 días${formasPago}`,
   "5": `*Paramount:* 20.000 Gs - 30 días${formasPago}`,
   "6": `*Crunchyroll:* 15.000 Gs - 30 días${formasPago}`,
