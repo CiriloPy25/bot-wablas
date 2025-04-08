@@ -181,20 +181,30 @@ const respuestas = {
 };
 
 app.post("/", (req, res) => {
-  const mensaje = (req.body.message || "").trim();
+  const mensaje = (req.body.message || "").toLowerCase().trim();
 
-const palabrasClave = ["bienvenido", "hola", "lista", "precios", "ayuda"];
+  const palabrasClave = ["bienvenido", "hola", "lista", "precios", "ayuda"];
+  const palabrasPago = ["forma de pago", "formas de pago", "pago", "giros", "giro", "numero para giro", "número para giro", "datos de pago"];
 
-if (palabrasClave.some(palabra => mensaje.toLowerCase().includes(palabra))) {
-  res.set("Content-Type", "text/plain");
-  return res.send(mensajeBienvenida);
-}
-
-  if (respuestas[mensaje]) {
-res.set('Content-Type', 'text/plain');
-return res.send(respuestas[mensaje]);
+  // Enviar mensaje de bienvenida
+  if (palabrasClave.some(palabra => mensaje.includes(palabra))) {
+    res.set("Content-Type", "text/plain");
+    return res.send(mensajeBienvenida);
   }
-  
+
+  // Enviar formas de pago si detecta alguna palabra clave relacionada
+  if (palabrasPago.some(palabra => mensaje.includes(palabra))) {
+    res.set("Content-Type", "text/plain");
+    return res.send(formasPago);
+  }
+
+  // Enviar respuesta por número
+  if (respuestas[mensaje]) {
+    res.set('Content-Type', 'text/plain');
+    return res.send(respuestas[mensaje]);
+  }
+
+  res.sendStatus(200);
 });
 
 app.get("/", (req, res) => {
