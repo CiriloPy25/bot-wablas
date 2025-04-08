@@ -85,7 +85,7 @@ const respuestas = {
 app.post("/", (req, res) => {
   const mensaje = (req.body.message || "").trim().toLowerCase();
 
-  if (["precio", "servicios", "precios"].includes(mensaje)) {
+if ([ "ayuda", "servicios", "precios" ].includes(mensaje)) {
     return res.send({ status: "success", reply: mensajeBienvenida });
   }
 
