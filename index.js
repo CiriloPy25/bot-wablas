@@ -5,37 +5,38 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
-const mensajeBienvenida = `👋 ¡Bienvenido/a!
+const mensajeBienvenida = `👋 *¡Bienvenido/a!*
 
 *¿Qué servicio te interesa? Responde con un número:*
 
-1️⃣ Netflix Premium / Vip
-2️⃣ Disney+ Premium
-3️⃣ Max
-4️⃣ Prime Video
-5️⃣ Paramount
-6️⃣ Crunchyroll
-7️⃣ Spotify Premium
-8️⃣ YouTube Premium
-9️⃣ FlujoTv
-🔟 FénixTv
-1️⃣1️⃣ Ib Player Pro
-1️⃣2️⃣ IPTV Smarters
-1️⃣3️⃣ Tigo Sport App
-1️⃣4️⃣ Apple Tv
-1️⃣5️⃣ Apple Music
-1️⃣6️⃣ Free Fire
-1️⃣7️⃣ Call Of Duty Mobile
-1️⃣8️⃣ Pubg Mobile
-1️⃣9️⃣ Clash Royale
-2️⃣0️⃣ Clash Of Clans
-2️⃣1️⃣ Roblox
-2️⃣2️⃣ 8 Ball Pool
-2️⃣3️⃣ Tarjeta Virtual
-2️⃣4️⃣ Monedas TikTok
+1️⃣ *Netflix Premium / Vip*
+2️⃣ *Disney+ Premium*
+3️⃣ *Max*
+4️⃣ *Prime Video*
+5️⃣ *Paramount*
+6️⃣ *Crunchyroll*
+7️⃣ *Spotify Premium*
+8️⃣ *YouTube Premium*
+9️⃣ *FlujoTv*
+🔟 *FénixTv*
+1️⃣1️⃣ *Ib Player Pro*
+1️⃣2️⃣ *IPTV Smarters*
+1️⃣3️⃣ *Tigo Sport App*
+1️⃣4️⃣ *Apple Tv*
+1️⃣5️⃣ *Apple Music*
+1️⃣6️⃣ *Free Fire*
+1️⃣7️⃣ *Call of Duty Mobile*
+1️⃣8️⃣ *Pubg Mobile*
+1️⃣9️⃣ *Clash Royale*
+2️⃣0️⃣ *Clash Of Clans*
+2️⃣1️⃣ *Roblox*
+2️⃣2️⃣ *8 Ball Pool*
+2️⃣3️⃣ *Tarjeta Virtual*
+2️⃣4️⃣ *Monedas TikTok*
 
 📍 *Responde solo con el número del servicio.*
-📸 *Para reclamos o comprobantes:* enviá una imagen.`;
+
+📸 *Para reclamos o comprobantes:* envianos tu nombre completo junto con una imagen.`;
 
 const formasPago = `
 
@@ -93,16 +94,19 @@ if (
   return res.send({ status: "success", reply: mensajeBienvenida });
 }
 
-  if (mensaje.includes("reclamo")) {
-    return res.send({
-      status: "success",
-      reply: "📩 Para ayudarte con tu reclamo, por favor envianos:\n\n1️⃣ *Tu nombre y apellido completo*\n2️⃣ *Una captura de pantalla o foto del problema*"
-    });
-  }
+ if (mensaje.includes("reclamo")) {
+  // este primero
+  return res.send({
+    status: "success",
+    reply: "📸 *Para ayudarte con tu reclamo, por favor envianos:*\n\n1️⃣ *Tu nombre y apellido completo*\n2️⃣ *Una captura de pantalla o foto del problema*"
+  });
+}
 
-  if (respuestas[mensaje]) {
-    return res.send({ status: "success", reply: respuestas[mensaje] });
-  }
+if (respuestas[mensaje]) {
+  // y luego este
+  return res.send({ status: "success", reply: respuestas[mensaje] });
+}
+
 
   return res.send({ status: "success", reply: null });
 });
