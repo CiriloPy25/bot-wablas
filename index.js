@@ -180,26 +180,21 @@ const respuestas = {
 - 102.000 Gs : 1037 monedas${formasPago}`
 };
 
-const ultimosSaludos = {}; // Guardar tiempos por número
+app.post("/", (req, res) => {
+  const mensaje = (req.body.message || "").trim();
 
-app.post("/", async (req, res) => {
-  const numero = req.body.phone;
-  const mensaje = (req.body.message || "").toLowerCase().trim();
-  const ahora = Date.now();
-  const MILISEGUNDOS_EN_UN_DIA = 1 * 60 * 1000; // ← poné 24 * 60 * 60 * 1000 después de probar
+const palabrasClave = ["bienvenido", "hola", "lista", "precios", "ayuda"];
 
-  // Enviar mensaje de bienvenida si es nuevo o pasaron más de X tiempo
-  if (!ultimosSaludos[numero] || ahora - ultimosSaludos[numero] > MILISEGUNDOS_EN_UN_DIA) {
-    await sendMessage(numero, mensajeBienvenida);
-    ultimosSaludos[numero] = ahora;
-  }
+if (palabrasClave.some(palabra => mensaje.toLowerCase().includes(palabra))) {
+  res.set("Content-Type", "text/plain");
+  return res.send(mensajeBienvenida);
+}
 
-  // Enviar respuesta por número
   if (respuestas[mensaje]) {
-    await sendMessage(numero, respuestas[mensaje]);
+res.set('Content-Type', 'text/plain');
+return res.send(respuestas[mensaje]);
   }
-
-  res.sendStatus(200);
+  
 });
 
 app.get("/", (req, res) => {
