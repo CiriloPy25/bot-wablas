@@ -18,21 +18,21 @@ const mensajeBienvenida = `
 7⃣ Crunchyroll
 8⃣ Spotify Premium
 9⃣ YouTube Premium
-10⃣ FlujoTv
-11⃣ FénixTv
-12⃣ Ib Player Pro
-13⃣ IPTV Smarters
-14⃣ Tigo Sport App
-15⃣ Apple Tv
-16⃣ Apple Music
-17⃣ Call Of Duty Mobile
-18⃣ Pubg Mobile
-19⃣ Clash Royale
-20⃣ Clash Of Clans
-21⃣ Roblox
-22⃣ 8 Ball Pool
-23⃣ Tarjeta Virtual
-24⃣ Monedas TikTok
+1⃣0⃣ FlujoTv
+1⃣1⃣ FénixTv
+1⃣2⃣ Ib Player Pro
+1⃣3⃣ IPTV Smarters
+1⃣4⃣ Tigo Sport App
+1⃣5⃣ Apple Tv
+1⃣6⃣ Apple Music
+1⃣7⃣ Call Of Duty Mobile
+1⃣8⃣ Pubg Mobile
+1⃣9⃣ Clash Royale
+2⃣0⃣ Clash Of Clans
+2⃣1⃣ Roblox
+2⃣2⃣ 8 Ball Pool
+2⃣3⃣ Tarjeta Virtual
+2⃣4⃣ Monedas TikTok
 
 ✨ *Escribí el número del servicio para ver los precios.*`;
 
