@@ -1,5 +1,4 @@
 const express = require("express");
-const axios = require("axios");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -68,6 +67,7 @@ const respuestas = {
 - 20.000 Gs : Vip Semanal
 - 75.000 Gs : Vip Mensual
 - 35.000 Gs : Pase de Nivel${formasPago}`,
+
   "2": `*➯ Netflix Premium:*
 (Acceso por código)
 - 30.000 Gs : 30 días
@@ -77,66 +77,87 @@ const respuestas = {
 (Acceso por contraseña)
 - 45.000 Gs : 30 días
 - 80.000 Gs : 60 días${formasPago}`,
+
   "3": `*➯ Disney+ Premium:*
 - 30.000 Gs : 30 días
 - 50.000 Gs : 60 días${formasPago}`,
+
   "4": `*➯ Max:*
 - 20.000 Gs : 30 días
 - 35.000 Gs : 60 días${formasPago}`,
+
   "5": `*➯ Prime Video:*
 - 20.000 Gs : 30 días
 - 35.000 Gs : 60 días${formasPago}`,
+
   "6": `*➯ Paramount:*
 - 20.000 Gs : 30 días
 - 35.000 Gs : 60 días${formasPago}`,
+
   "7": `*➯ Crunchyroll:*
 - 15.000 Gs : 30 días
 - 25.000 Gs : 60 días${formasPago}`,
+
   "8": `*➯ Spotify Premium:*
 - 25.000 Gs : 30 días
 - 45.000 Gs : 60 días${formasPago}`,
+
   "9": `*➯ YouTube Premium:*
 - 20.000 Gs : 30 días
 - 35.000 Gs : 60 días${formasPago}`,
+
   "10": `*➯ FlujoTv:*
 - 30.000 Gs : 30 días
 - 50.000 Gs : 60 días${formasPago}`,
+
   "11": `*➯ FénixTv:*
 - 15.000 Gs : 30 días
 - 25.000 Gs : 60 días${formasPago}`,
+
   "12": `*➯ Ib Player Pro:*
 - 30.000 Gs : 30 días
 - 50.000 Gs : 60 días${formasPago}`,
+
   "13": `*➯ IPTV Smarters:*
 - 25.000 Gs : 30 días
 - 40.000 Gs : 60 días${formasPago}`,
+
   "14": `*➯ Tigo Sport App:*
 - 45.000 Gs : 30 días
 - 80.000 Gs : 60 días${formasPago}`,
+
   "15": `*➯ Apple Tv:*
 - 30.000 Gs : 90 días${formasPago}`,
+
   "16": `*➯ Apple Music:*
 - 30.000 Gs : 90 días${formasPago}`,
+
   "17": `*➯ CP Call Of Duty Mobile:*
 - 12.000 Gs : 80 CP
 - 50.000 Gs : 420 CP
 - 90.000 Gs : 880 CP${formasPago}`,
+
   "18": `*➯ UC Pubg Mobile:*
 - 13.000 Gs : 63 UC
 - 47.000 Gs : 340 UC
 - 90.000 Gs : 690 UC
 - 195.000 Gs : 1875 UC${formasPago}`,
+
   "19": `*➯ Pass Clash Royale:*
 - 100.000 Gs : Pase Diamante${formasPago}`,
+
   "20": `*➯ Pass Clash of Clans:*
 - 65.000 Gs : Pase Oro${formasPago}`,
+
   "21": `*➯ Moneda Roblox:*
 - 50.000 Gs : 500 Robux
 - 90.000 Gs : 1000 Robux
 - 135.000 Gs : 1500 Robux${formasPago}`,
+
   "22": `*➯ Pass 8 Ball Pool:*
 - 40.000 Gs : Premium Pass
 - 70.000 Gs : Élite Pass${formasPago}`,
+
   "23": `*➯ Tarjeta Virtual (Play Store):*
 - 10.000 : 15.000 Gs
 - 20.000 : 29.000 Gs
@@ -148,6 +169,7 @@ const respuestas = {
 - 80.000 : 96.000 Gs
 - 90.000 : 107.000 Gs
 - 100.000 : 118.000 Gs${formasPago}`,
+
   "24": `*➯ Monedas TikTok:*
 - 48.000 Gs : 471 monedas
 - 57.000 Gs : 566 monedas
@@ -158,39 +180,21 @@ const respuestas = {
 - 102.000 Gs : 1037 monedas${formasPago}`
 };
 
-const ultimosSaludos = {};
-
-const sendMessage = async (numero, mensaje) => {
-  try {
-await axios.post("https://www.wablas.com/api/send-message", {
-      phone: numero,
-      message: mensaje
-    }, {
-      headers: {
-        Authorization: "LC6ZbdP61YXwaZW6FNJxJWtqDI87A4HIMDBb7gPjdmEG8dCIh3DxoCN" // Reemplazar con tu token real
-      }
-    });
-  } catch (error) {
-    console.error("Error al enviar mensaje:", error.response?.data || error.message);
-  }
-};
-
-app.post("/", async (req, res) => {
-  const numero = req.body.phone;
+app.post("/", (req, res) => {
   const mensaje = (req.body.message || "").trim();
-  const ahora = Date.now();
-  const MILISEGUNDOS_EN_UN_DIA = 24 * 60 * 60 * 1000;
 
-  if (!ultimosSaludos[numero] || ahora - ultimosSaludos[numero] > MILISEGUNDOS_EN_UN_DIA) {
-    await sendMessage(numero, mensajeBienvenida);
-    ultimosSaludos[numero] = ahora;
-  }
+const palabrasClave = ["bienvenido", "hola", "lista", "precios", "ayuda"];
+
+if (palabrasClave.some(palabra => mensaje.toLowerCase().includes(palabra))) {
+  res.set("Content-Type", "text/plain");
+  return res.send(mensajeBienvenida);
+}
 
   if (respuestas[mensaje]) {
-    await sendMessage(numero, respuestas[mensaje]);
+res.set('Content-Type', 'text/plain');
+return res.send(respuestas[mensaje]);
   }
-
-  res.sendStatus(200);
+  
 });
 
 app.get("/", (req, res) => {
