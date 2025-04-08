@@ -208,9 +208,6 @@ app.post("/", (req, res) => {
     return res.send(respuestas[mensaje]);
   }
 
-  // ❌ Si no coincide con nada, no responder nada
-  res.sendStatus(200);
-
 });
 
 app.get("/", (req, res) => {
