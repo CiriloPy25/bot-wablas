@@ -57,6 +57,7 @@ const formasPago = `
 ➯ Wally: 0982832010`;
 
 const respuestas = {
+  const ultimosSaludos = {}; // Guarda el momento del último saludo por número
   "1": `*➯ Diamantes Free Fire:*
 - 10.000 Gs : 110
 - 25.000 Gs : 341
@@ -181,28 +182,34 @@ const respuestas = {
 };
 
 app.post("/", (req, res) => {
+  const numero = req.body.phone;
   const mensaje = (req.body.message || "").toLowerCase().trim();
+  const ahora = Date.now();
+  const MILISEGUNDOS_EN_24H = 24 * 60 * 60 * 1000;
 
-  const palabrasClave = ["bienvenido", "hola", "lista", "precios", "ayuda"];
-  const palabrasPago = ["forma de pago", "numero para giro", "para giro", "hacer giro", "hacer pago"];
+  const palabrasPago = ["forma de pago", "numero para giro", "número para giro", "para giro", "hacer giro", "hacer pago"];
 
-  // Enviar mensaje de bienvenida
-  if (palabrasClave.some(palabra => mensaje.includes(palabra))) {
+  // ✅ Enviar mensaje de bienvenida solo si pasaron más de 24h
+  if (!ultimosSaludos[numero] || ahora - ultimosSaludos[numero] > MILISEGUNDOS_EN_24H) {
+    ultimosSaludos[numero] = ahora;
     res.set("Content-Type", "text/plain");
     return res.send(mensajeBienvenida);
   }
 
-  // Enviar formas de pago si detecta alguna palabra clave relacionada
+  // 💳 Enviar formas de pago si coincide
   if (palabrasPago.some(palabra => mensaje.includes(palabra))) {
     res.set("Content-Type", "text/plain");
     return res.send(formasPago);
   }
 
-  // Enviar respuesta por número
+  // 🔢 Enviar respuesta por número si coincide
   if (respuestas[mensaje]) {
-    res.set('Content-Type', 'text/plain');
+    res.set("Content-Type", "text/plain");
     return res.send(respuestas[mensaje]);
   }
+
+  // ❌ Si no coincide con nada, no responder nada
+  res.sendStatus(200);
 
 });
 
