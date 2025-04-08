@@ -185,7 +185,7 @@ app.post("/", (req, res) => {
   const numero = req.body.phone;
   const mensaje = (req.body.message || "").toLowerCase().trim();
   const ahora = Date.now();
-  const MILISEGUNDOS_EN_24H = 24 * 60 * 60 * 1000;
+  const MILISEGUNDOS_EN_24H = 60 * 1000;
 
   const palabrasPago = ["forma de pago", "numero para giro", "número para giro", "para giro", "hacer giro", "hacer pago"];
 
