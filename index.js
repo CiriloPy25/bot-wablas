@@ -204,7 +204,6 @@ app.post("/", (req, res) => {
     return res.send(respuestas[mensaje]);
   }
 
-  res.sendStatus(200);
 });
 
 app.get("/", (req, res) => {
