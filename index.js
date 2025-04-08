@@ -199,7 +199,8 @@ res.set('Content-Type', 'text/plain');
 return res.send(respuestas[mensaje]);
   }
 
-  return res.send({ status: "success", reply: "➡️ Elegí un número del 1 al 24." });
+res.set('Content-Type', 'text/plain');
+return res.send("➡️ Elegí un número del 1 al 24.");
 });
 
 app.listen(PORT, () => {
