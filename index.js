@@ -183,7 +183,7 @@ app.post("/", (req, res) => {
   const mensaje = (req.body.message || "").trim();
 
   if (["hola", "servicio", "servicios", "precios", "ayuda"].includes(mensaje.toLowerCase())) {
-    return res.send({ status: "success", reply: mensajeBienvenida });
+return res.send(mensajeBienvenida);
   }
 
   if (mensaje === "reclamo") {
@@ -194,7 +194,7 @@ app.post("/", (req, res) => {
   }
 
   if (respuestas[mensaje]) {
-    return res.send({ status: "success", reply: respuestas[mensaje] });
+return res.send(respuestas[mensaje]);
   }
 
   return res.send({ status: "success", reply: "➡️ Elegí un número del 1 al 24." });
