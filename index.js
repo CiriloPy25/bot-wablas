@@ -162,7 +162,7 @@ const ultimosSaludos = {};
 
 const sendMessage = async (numero, mensaje) => {
   try {
-    await axios.post("https://console.wablas.com/api/send-message", {
+await axios.post("https://www.wablas.com/api/send-message", {
       phone: numero,
       message: mensaje
     }, {
