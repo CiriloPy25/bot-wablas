@@ -4,41 +4,42 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-const mensajeBienvenida = `👋 ¡Bienvenido/a!
+const mensajeBienvenida = `
+👋 *¡Bienvenido/a!*
 
 *¿Cómo podemos ayudarte hoy?*
 
-1️⃣ Free Fire  
-2️⃣ Netflix Premium / VIP  
-3️⃣ Disney+ Premium  
-4️⃣ Max  
-5️⃣ Prime Video  
-6️⃣ Paramount  
-7️⃣ Crunchyroll  
-8️⃣ Spotify Premium  
-9️⃣ YouTube Premium  
-🔟 FlujoTv  
-1️⃣1️⃣ FénixTv  
-1️⃣2️⃣ Ib Player Pro  
-1️⃣3️⃣ Iptv Smarters  
-1️⃣4️⃣ Tigo Sport App  
-1️⃣5️⃣ Apple Tv  
-1️⃣6️⃣ Apple Music  
-1️⃣7️⃣ Call Of Duty Mobile  
-1️⃣8️⃣ Pubg Mobile  
-1️⃣9️⃣ Clash Royale  
-2️⃣0️⃣ Clash Of Clans  
-2️⃣1️⃣ Roblox  
-2️⃣2️⃣ 8 Ball Pool  
-2️⃣3️⃣ Tarjeta Virtual  
-2️⃣4️⃣ Monedas TikTok
+1⃣ Free Fire
+2⃣ Netflix Premium / VIP
+3⃣ Disney+ Premium
+4⃣ Max
+5⃣ Prime Video
+6⃣ Paramount
+7⃣ Crunchyroll
+8⃣ Spotify Premium
+9⃣ YouTube Premium
+10⃣ FlujoTv
+11⃣ FénixTv
+12⃣ Ib Player Pro
+13⃣ IPTV Smarters
+14⃣ Tigo Sport App
+15⃣ Apple Tv
+16⃣ Apple Music
+17⃣ Call Of Duty Mobile
+18⃣ Pubg Mobile
+19⃣ Clash Royale
+20⃣ Clash Of Clans
+21⃣ Roblox
+22⃣ 8 Ball Pool
+23⃣ Tarjeta Virtual
+24⃣ Monedas TikTok
 
 ✨ *Escribí el número del servicio para ver los precios.*`;
 
 const formasPago = `
 
 💳 *Formas de Pago:*
-(*Giro* 🙅🏻‍♂ no carga de billetera)
+(*Giro* 🙅🏻‍♂️ no carga de billetera)
 
 - *Titular:* Cirilo Guillen
 - *C.I.:* 5578346
@@ -55,46 +56,148 @@ const formasPago = `
 ➯ Wally: 0982832010`;
 
 const respuestas = {
-  "1": "*➯ Diamantes Free Fire:*\\n- 10.000 Gs : 110\\n- 25.000 Gs : 341\\n- 40.000 Gs : 572\\n- 75.000 Gs : 1155\\n- 140.000 Gs : 2398\\n- 325.000 Gs : 6160\\n- 20.000 Gs : Vip Semanal\\n- 75.000 Gs : Vip Mensual\\n- 35.000 Gs : Pase de Nivel" + formasPago,
-  "2": "*➯ Netflix Premium:*\\n(Acceso por código)\\n- 30.000 Gs : 30 Días\\n- 55.000 Gs : 60 Días\\n\\n*➯ Netflix Vip:*\\n(Acceso por contraseña)\\n- 45.000 Gs : 30 Días\\n- 80.000 Gs : 60 Días" + formasPago,
-  "3": "*➯ Disney Premium:*\\n- 30.000 Gs : 30 Días\\n- 50.000 Gs : 60 Días" + formasPago,
-  "4": "*➯ Max:*\\n- 20.000 Gs : 30 Días\\n- 35.000 Gs : 60 Días" + formasPago,
-  "5": "*➯ Prime Video:*\\n- 20.000 Gs : 30 Días\\n- 35.000 Gs : 60 Días" + formasPago,
-  "6": "*➯ Paramount:*\\n- 20.000 Gs : 30 Días\\n- 35.000 Gs : 60 Días" + formasPago,
-  "7": "*➯ Crunchyroll:*\\n- 15.000 Gs : 30 Días\\n- 25.000 Gs : 60 Días" + formasPago,
-  "8": "*➯ Spotify Premium:*\\n- 25.000 Gs : 30 Días\\n- 45.000 Gs : 60 Días" + formasPago,
-  "9": "*➯ YouTube Premium:*\\n- 20.000 Gs : 30 Días\\n- 35.000 Gs : 60 Días" + formasPago,
-  "10": "*➯ FlujoTv Compartida (1 pantalla):*\\n- 30.000 Gs : 30 Días\\n- 50.000 Gs : 60 Días" + formasPago,
-  "11": "*➯ FénixTv Compartida (1 pantalla):*\\n- 15.000 Gs : 30 Días\\n- 25.000 Gs : 60 Días" + formasPago,
-  "12": "*➯ Ib Player Pro:*\\n- 30.000 Gs : 30 Días\\n- 50.000 Gs : 60 Días" + formasPago,
-  "13": "*➯ Iptv Smarters (3 pantallas):*\\n- 25.000 Gs : 30 Días\\n- 40.000 Gs : 60 Días" + formasPago,
-  "14": "*➯ Tigo Sport App (2 pantallas):*\\n- 45.000 Gs : 30 Días\\n- 80.000 Gs : 60 Días" + formasPago,
-  "15": "*➯ Apple Tv:*\\n- 30.000 Gs : 90 Días" + formasPago,
-  "16": "*➯ Apple Music:*\\n- 30.000 Gs : 90 Días" + formasPago,
-  "17": "*➯ Cp Call of Duty Mobile:*\\n- 12.000 Gs : 80 Cp\\n- 50.000 Gs : 420 Cp\\n- 90.000 Gs : 880 Cp" + formasPago,
-  "18": "*➯ Uc Pubg Mobile:*\\n- 13.000 Gs : 63 Uc\\n- 47.000 Gs : 340 Uc\\n- 90.000 Gs : 690 Uc\\n- 195.000 Gs : 1875 Uc" + formasPago,
-  "19": "*➯ Pass Clash Royale:*\\n- 100.000 Gs : Pase Diamante" + formasPago,
-  "20": "*➯ Pass Clash of Clans:*\\n- 65.000 Gs : Pase Oro" + formasPago,
-  "21": "*➯ Moneda Roblox:*\\n- 50.000 Gs : 500 Robux\\n- 90.000 Gs : 1000 Robux\\n- 135.000 Gs : 1500 Robux" + formasPago,
-  "22": "*➯ Pass 8 Ball Pool:*\\n- 40.000 Gs : Premium Pass\\n- 70.000 Gs : Élite Pass" + formasPago,
-  "23": "*➯ Tarjeta Virtual:*\\n(Play Store)\\n- (10.000) : 15.000 Gs\\n- (20.000) : 29.000 Gs\\n- (30.000) : 40.000 Gs\\n- (40.000) : 52.000 Gs\\n- (50.000) : 63.000 Gs\\n- (60.000) : 74.000 Gs\\n- (70.000) : 85.000 Gs\\n- (80.000) : 96.000 Gs\\n- (90.000) : 107.000 Gs\\n- (100.000) : 118.000 Gs" + formasPago,
-  "24": "*➯ Monedas TikTok:*\\n- 48.000 Gs : 471 monedas\\n- 57.000 Gs : 566 monedas\\n- 65.000 Gs : 660 monedas\\n- 75.000 Gs : 754 monedas\\n- 83.000 Gs : 849 monedas\\n- 93.000 Gs : 943 monedas\\n- 102.000 Gs : 1037 monedas" + formasPago
+  "1": `*➯ Diamantes Free Fire:*
+- 10.000 Gs : 110
+- 25.000 Gs : 341
+- 40.000 Gs : 572
+- 75.000 Gs : 1155
+- 140.000 Gs : 2398
+- 325.000 Gs : 6160
+- 20.000 Gs : Vip Semanal
+- 75.000 Gs : Vip Mensual
+- 35.000 Gs : Pase de Nivel${formasPago}`,
+
+  "2": `*➯ Netflix Premium:*
+(Acceso por código)
+- 30.000 Gs : 30 días
+- 55.000 Gs : 60 días
+
+*➯ Netflix Vip:*
+(Acceso por contraseña)
+- 45.000 Gs : 30 días
+- 80.000 Gs : 60 días${formasPago}`,
+
+  "3": `*➯ Disney+ Premium:*
+- 30.000 Gs : 30 días
+- 50.000 Gs : 60 días${formasPago}`,
+
+  "4": `*➯ Max:*
+- 20.000 Gs : 30 días
+- 35.000 Gs : 60 días${formasPago}`,
+
+  "5": `*➯ Prime Video:*
+- 20.000 Gs : 30 días
+- 35.000 Gs : 60 días${formasPago}`,
+
+  "6": `*➯ Paramount:*
+- 20.000 Gs : 30 días
+- 35.000 Gs : 60 días${formasPago}`,
+
+  "7": `*➯ Crunchyroll:*
+- 15.000 Gs : 30 días
+- 25.000 Gs : 60 días${formasPago}`,
+
+  "8": `*➯ Spotify Premium:*
+- 25.000 Gs : 30 días
+- 45.000 Gs : 60 días${formasPago}`,
+
+  "9": `*➯ YouTube Premium:*
+- 20.000 Gs : 30 días
+- 35.000 Gs : 60 días${formasPago}`,
+
+  "10": `*➯ FlujoTv:*
+- 30.000 Gs : 30 días
+- 50.000 Gs : 60 días${formasPago}`,
+
+  "11": `*➯ FénixTv:*
+- 15.000 Gs : 30 días
+- 25.000 Gs : 60 días${formasPago}`,
+
+  "12": `*➯ Ib Player Pro:*
+- 30.000 Gs : 30 días
+- 50.000 Gs : 60 días${formasPago}`,
+
+  "13": `*➯ IPTV Smarters:*
+- 25.000 Gs : 30 días
+- 40.000 Gs : 60 días${formasPago}`,
+
+  "14": `*➯ Tigo Sport App:*
+- 45.000 Gs : 30 días
+- 80.000 Gs : 60 días${formasPago}`,
+
+  "15": `*➯ Apple Tv:*
+- 30.000 Gs : 90 días${formasPago}`,
+
+  "16": `*➯ Apple Music:*
+- 30.000 Gs : 90 días${formasPago}`,
+
+  "17": `*➯ CP Call Of Duty Mobile:*
+- 12.000 Gs : 80 CP
+- 50.000 Gs : 420 CP
+- 90.000 Gs : 880 CP${formasPago}`,
+
+  "18": `*➯ UC Pubg Mobile:*
+- 13.000 Gs : 63 UC
+- 47.000 Gs : 340 UC
+- 90.000 Gs : 690 UC
+- 195.000 Gs : 1875 UC${formasPago}`,
+
+  "19": `*➯ Pass Clash Royale:*
+- 100.000 Gs : Pase Diamante${formasPago}`,
+
+  "20": `*➯ Pass Clash of Clans:*
+- 65.000 Gs : Pase Oro${formasPago}`,
+
+  "21": `*➯ Moneda Roblox:*
+- 50.000 Gs : 500 Robux
+- 90.000 Gs : 1000 Robux
+- 135.000 Gs : 1500 Robux${formasPago}`,
+
+  "22": `*➯ Pass 8 Ball Pool:*
+- 40.000 Gs : Premium Pass
+- 70.000 Gs : Élite Pass${formasPago}`,
+
+  "23": `*➯ Tarjeta Virtual (Play Store):*
+- 10.000 : 15.000 Gs
+- 20.000 : 29.000 Gs
+- 30.000 : 40.000 Gs
+- 40.000 : 52.000 Gs
+- 50.000 : 63.000 Gs
+- 60.000 : 74.000 Gs
+- 70.000 : 85.000 Gs
+- 80.000 : 96.000 Gs
+- 90.000 : 107.000 Gs
+- 100.000 : 118.000 Gs${formasPago}`,
+
+  "24": `*➯ Monedas TikTok:*
+- 48.000 Gs : 471 monedas
+- 57.000 Gs : 566 monedas
+- 65.000 Gs : 660 monedas
+- 75.000 Gs : 754 monedas
+- 83.000 Gs : 849 monedas
+- 93.000 Gs : 943 monedas
+- 102.000 Gs : 1037 monedas${formasPago}`
 };
 
 app.post("/", (req, res) => {
-  const mensaje = (req.body.message || "").trim().toLowerCase();
+  const mensaje = (req.body.message || "").trim();
 
-  if (
-    ["hola", "servicios", "servicio", "precios", "ayuda"].includes(mensaje)
-  ) {
+  if (["hola", "servicio", "servicios", "precios", "ayuda"].includes(mensaje.toLowerCase())) {
     return res.send({ status: "success", reply: mensajeBienvenida });
+  }
+
+  if (mensaje === "reclamo") {
+    return res.send({
+      status: "success",
+      reply: "📸 Para reclamos, envianos tu *nombre y apellido completo* y una *captura de pantalla o foto del problema*."
+    });
   }
 
   if (respuestas[mensaje]) {
     return res.send({ status: "success", reply: respuestas[mensaje] });
   }
 
-  return res.send({ status: "success", reply: "➡️ Elegí un número." });
+  return res.send({ status: "success", reply: "➡️ Elegí un número del 1 al 24." });
 });
 
 app.listen(PORT, () => {
