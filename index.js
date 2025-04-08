@@ -188,11 +188,9 @@ return res.send(mensajeBienvenida);
 }
 
   if (mensaje === "reclamo") {
-    return res.send({
-      status: "success",
-      reply: "📸 Para reclamos, envianos tu *nombre y apellido completo* y una *captura de pantalla o foto del problema*."
-    });
-  }
+  await sendMessage(numero, "📸 Para reclamos, envianos tu *nombre y apellido completo* y una *captura de pantalla o foto del problema*.");
+  return res.sendStatus(200);
+}
 
   if (respuestas[mensaje]) {
 res.set('Content-Type', 'text/plain');
