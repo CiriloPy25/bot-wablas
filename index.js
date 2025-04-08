@@ -39,14 +39,17 @@ const formasPago = `\n\n💳 *Formas de Pago:*\n(*Giro* 🙅🏻‍♂ no carga 
 
 app.post("/", (req, res) => {
  const miNumero = "595971308233";
-const remitente = (req.body.sender || "")
-  .replace(/\D/g, ""); // quita todo lo que no sea número
+const remitente = (req.body.sender || "").replace(/\D/g, ""); // quita todo lo que no sea número
 
-if (
-  remitente === miNumero ||               // formato completo
-  remitente === miNumero.slice(3) ||      // sin 595
-  remitente === "0" + miNumero.slice(3)   // con 0 delante (ej: 0971308233)
-) {
+const variaciones = [
+  miNumero,
+  miNumero.slice(3),              // sin 595
+  "0" + miNumero.slice(3),        // con 0
+  miNumero.slice(2),              // sin 59
+  "09" + miNumero.slice(5)        // formato local
+];
+
+if (variaciones.includes(remitente)) {
   return res.send({ status: "success", reply: null });
 }
 
