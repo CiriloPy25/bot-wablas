@@ -168,7 +168,7 @@ const sendMessage = async (numero, mensaje) => {
       message: mensaje
     }, {
       headers: {
-        Authorization: "TU_TOKEN_WABLAS" // Reemplazar con tu token real
+        Authorization: "LC6ZbdP61YXwaZW6FNJxJWtqDI87A4HIMDBb7gPjdmEG8dCIh3DxoCN" // Reemplazar con tu token real
       }
     });
   } catch (error) {
