@@ -85,9 +85,13 @@ const respuestas = {
 app.post("/", (req, res) => {
   const mensaje = (req.body.message || "").trim().toLowerCase();
 
-if ([ "ayuda", "servicios", "precios" ].includes(mensaje)) {
-    return res.send({ status: "success", reply: mensajeBienvenida });
-  }
+if (
+  mensaje.trim() === "hola" ||
+  mensaje.trim() === "servicios" ||
+  mensaje.trim() === "precios"
+) {
+  return res.send({ status: "success", reply: mensajeBienvenida });
+}
 
   if (mensaje.includes("reclamo")) {
     return res.send({
