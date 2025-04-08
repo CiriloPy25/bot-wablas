@@ -183,7 +183,7 @@ const respuestas = {
 app.post("/", (req, res) => {
   const mensaje = (req.body.message || "").trim();
 
-const palabrasClave = ["bienvenido", "servicio", "servicios", "precios", "ayuda"];
+const palabrasClave = ["bienvenido", "hola", "lista", "precios", "ayuda"];
 
 if (palabrasClave.some(palabra => mensaje.toLowerCase().includes(palabra))) {
   res.set("Content-Type", "text/plain");
