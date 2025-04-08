@@ -7,7 +7,8 @@ app.use(express.json());
 const mensajeBienvenida = `
 👋 ¡Bienvenido/a!
 
-*✨ *Elegí el número del servicio que te interesa:*
+*✨ Elige un número* y te asistiremos de inmediato
+
 ➯ *1.* Free Fire  
 ➯ *2.* Netflix Premium  
 ➯ *3.* Disney+ Premium  
@@ -32,8 +33,6 @@ const mensajeBienvenida = `
 ➯ *22.* 8 Ball Pool  
 ➯ *23.* Tarjeta Virtual  
 ➯ *24.* Monedas TikTok
-
-✨ *Respondé con el número para ver los precios.*
 
 *➯ Reclamos:*  
 Enviá tu nombre, apellido y una foto o captura del problema.`;
