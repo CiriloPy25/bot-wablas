@@ -184,7 +184,7 @@ app.post("/", (req, res) => {
   const mensaje = (req.body.message || "").toLowerCase().trim();
 
   const palabrasClave = ["bienvenido", "hola", "lista", "precios", "ayuda"];
-  const palabrasPago = ["forma de pago", "formas de pago", "pago", "giros", "giro", "numero para giro", "número para giro", "datos de pago"];
+  const palabrasPago = ["forma de pago", "numero para giro", "datos para transfencia"];
 
   // Enviar mensaje de bienvenida
   if (palabrasClave.some(palabra => mensaje.includes(palabra))) {
