@@ -7,32 +7,31 @@ app.use(express.json());
 const mensajeBienvenida = `
 👋 ¡Bienvenido/a!
 
-*Elegí el número del servicio que te interesa:*
-
-1. Free Fire  
-2. Netflix Premium  
-3. Disney+ Premium  
-4. Max  
-5. Prime Video  
-6. Paramount  
-7. Crunchyroll  
-8. Spotify Premium  
-9. YouTube Premium  
-10. FlujoTv  
-11. FénixTv  
-12. Ib Player Pro  
-13. IPTV Smarters  
-14. Tigo Sport App  
-15. Apple TV  
-16. Apple Music  
-17. Call of Duty Mobile  
-18. PUBG Mobile  
-19. Clash Royale  
-20. Clash of Clans  
-21. Roblox  
-22. 8 Ball Pool  
-23. Tarjeta Virtual  
-24. Monedas TikTok
+*✨ *Elegí el número del servicio que te interesa:*
+➯ *1.* Free Fire  
+➯ *2.* Netflix Premium  
+➯ *3.* Disney+ Premium  
+➯ *4.* Max  
+➯ *5.* Prime Video  
+➯ *6.* Paramount+  
+➯ *7.* Crunchyroll  
+➯ *8.* Spotify Premium  
+➯ *9.* YouTube Premium  
+➯ *10.* FlujoTV  
+➯ *11.* FénixTV  
+➯ *12.* Ib Player Pro  
+➯ *13.* IPTV Smarters  
+➯ *14.* Tigo Sports  
+➯ *15.* Apple TV  
+➯ *16.* Apple Music  
+➯ *17.* Call of Duty Mobile  
+➯ *18.* PUBG Mobile  
+➯ *19.* Clash Royale  
+➯ *20.* Clash of Clans  
+➯ *21.* Roblox  
+➯ *22.* 8 Ball Pool  
+➯ *23.* Tarjeta Virtual  
+➯ *24.* Monedas TikTok
 
 ✨ *Respondé con el número para ver los precios.*
 
