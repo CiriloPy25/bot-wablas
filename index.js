@@ -160,7 +160,6 @@ const respuestas = {
 
 const ultimosSaludos = {};
 
-const axios = require("axios");
 const sendMessage = async (numero, mensaje) => {
   try {
     await axios.post("https://console.wablas.com/api/send-message", {
