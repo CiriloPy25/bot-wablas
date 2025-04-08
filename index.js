@@ -5,36 +5,39 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 const mensajeBienvenida = `
-👋 *¡Hola! ¿En qué podemos ayudarte hoy?*
+👋 ¡Bienvenido/a!
 
-*📋 Estos son nuestros servicios disponibles:*
+*Elegí el número del servicio que te interesa:*
 
-1⃣ Free Fire
-2⃣ Netflix Premium / VIP
-3⃣ Disney+ Premium
-4⃣ Max
-5⃣ Prime Video
-6⃣ Paramount
-7⃣ Crunchyroll
-8⃣ Spotify Premium
-9⃣ YouTube Premium
-1⃣0⃣ FlujoTv
-1⃣1⃣ FénixTv
-1⃣2⃣ Ib Player Pro
-1⃣3⃣ IPTV Smarters
-1⃣4⃣ Tigo Sport App
-1⃣5⃣ Apple Tv
-1⃣6⃣ Apple Music
-1⃣7⃣ Call Of Duty Mobile
-1⃣8⃣ Pubg Mobile
-1⃣9⃣ Clash Royale
-2⃣0⃣ Clash Of Clans
-2⃣1⃣ Roblox
-2⃣2⃣ 8 Ball Pool
-2⃣3⃣ Tarjeta Virtual
-2⃣4⃣ Monedas TikTok
+1. Free Fire  
+2. Netflix Premium  
+3. Disney+ Premium  
+4. Max  
+5. Prime Video  
+6. Paramount  
+7. Crunchyroll  
+8. Spotify Premium  
+9. YouTube Premium  
+10. FlujoTv  
+11. FénixTv  
+12. Ib Player Pro  
+13. IPTV Smarters  
+14. Tigo Sport App  
+15. Apple TV  
+16. Apple Music  
+17. Call of Duty Mobile  
+18. PUBG Mobile  
+19. Clash Royale  
+20. Clash of Clans  
+21. Roblox  
+22. 8 Ball Pool  
+23. Tarjeta Virtual  
+24. Monedas TikTok
 
-💬 Escribí el número del servicio para ver los precios y formas de pago.`;
+✨ *Respondé con el número para ver los precios.*
+
+*➯ Reclamos:*  
+Enviá tu nombre, apellido y una foto o captura del problema.`;
 
 const formasPago = `
 
@@ -185,11 +188,6 @@ app.post("/", (req, res) => {
   if (["bienvenido", "servicio", "servicios", "precios", "ayuda"].includes(mensaje.toLowerCase())) {
 res.set('Content-Type', 'text/plain');
 return res.send(mensajeBienvenida);
-}
-
-  if (mensaje === "reclamo") {
-  await sendMessage(numero, "📸 Para reclamos, envianos tu *nombre y apellido completo* y una *captura de pantalla o foto del problema*.");
-  return res.sendStatus(200);
 }
 
   if (respuestas[mensaje]) {
