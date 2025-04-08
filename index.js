@@ -5,9 +5,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 const mensajeBienvenida = `
-👋 *¡Bienvenido/a!*
+👋 *¡Hola! ¿En qué podemos ayudarte hoy?*
 
-*¿Cómo podemos ayudarte hoy?*
+*📋 Estos son nuestros servicios disponibles:*
 
 1⃣ Free Fire
 2⃣ Netflix Premium / VIP
@@ -34,7 +34,7 @@ const mensajeBienvenida = `
 2⃣3⃣ Tarjeta Virtual
 2⃣4⃣ Monedas TikTok
 
-✨ *Escribí el número del servicio para ver los precios.*`;
+💬 Escribí el número del servicio para ver los precios y formas de pago.`;
 
 const formasPago = `
 
