@@ -35,7 +35,7 @@ const mensajeBienvenida = `
 ➯ *24.* Monedas TikTok
 
 *➯ Reclamos:*  
-Enviá tu nombre, apellido y una foto o captura del problema.`;
+- Enviá foto o captura del problema.`;
 
 const formasPago = `
 
