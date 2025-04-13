@@ -34,10 +34,8 @@ const mensajeBienvenida = `
 ➯ *23.* Tarjeta Virtual  
 ➯ *24.* Monedas TikTok
 
-*➯⚠️Importante:*
-El servicio de Netflix se encuentra con una incidencia.
-Te contactaremos apenas tengamos una solución.
-Por favor, indicá tu nombre y apellido para dejar registrado ✅`;
+➯ *Reclamo Netflix:*
+- 📸 Enviá código de tv + nombre y apellido.`;
 
 const formasPago = `
 
