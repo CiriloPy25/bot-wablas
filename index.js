@@ -10,7 +10,7 @@ const mensajeBienvenida = `
 *✨ Elige un número* y te asistiremos de inmediato
 
 ➯ *1.* Free Fire  
-➯ *2.* Netflix Premium  
+➯ *2.*  
 ➯ *3.* Disney+ Premium  
 ➯ *4.* Max  
 ➯ *5.* Prime Video  
@@ -34,9 +34,7 @@ const mensajeBienvenida = `
 ➯ *23.* Tarjeta Virtual  
 ➯ *24.* Monedas TikTok
 
-*➯ Reclamos:*  
-- Enviá foto o captura del problema.
-  ⚠️ Importante:
+*➯⚠️Importante:*
 El servicio de Netflix se encuentra con una incidencia.
 Te contactaremos apenas tengamos una solución.
 Por favor, indicá tu nombre y apellido para dejar registrado ✅`;
