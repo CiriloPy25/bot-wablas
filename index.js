@@ -71,12 +71,7 @@ const respuestas = {
   "2": `*➯ Netflix Premium:*
 (Acceso por código)
 - 30.000 Gs : 30 días
-- 55.000 Gs : 60 días
-
-*➯ Netflix Vip:*
-(Acceso por contraseña)
-- 45.000 Gs : 30 días
-- 80.000 Gs : 60 días${formasPago}`,
+- 55.000 Gs : 60 días${formasPago}`,
 
   "3": `*➯ Disney+ Premium:*
 - 30.000 Gs : 30 días
