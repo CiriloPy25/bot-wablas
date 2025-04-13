@@ -35,7 +35,11 @@ const mensajeBienvenida = `
 ➯ *24.* Monedas TikTok
 
 *➯ Reclamos:*  
-- Enviá foto o captura del problema.`;
+- Enviá foto o captura del problema.
+  ⚠️ Importante:
+El servicio de Netflix se encuentra con una incidencia.
+Te contactaremos apenas tengamos una solución.
+Por favor, indicá tu nombre y apellido para dejar registrado ✅`;
 
 const formasPago = `
 
