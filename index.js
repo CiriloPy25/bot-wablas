@@ -74,9 +74,14 @@ const respuestas = {
 - 55.000 Gs : 60 días${formasPago}`,
 
   "3": `*➯ Disney+ Premium:*
+- Incluye Espn
 - 30.000 Gs : 30 días
-- 50.000 Gs : 60 días${formasPago}`,
+- 50.000 Gs : 60 días
 
+- No Incluye Espn
+- 20.000 Gs : 30 días
+- 45.000 Gs : 60 días${formasPago}`,
+  
   "4": `*➯ Max:*
 - 20.000 Gs : 30 días
 - 35.000 Gs : 60 días${formasPago}`,
