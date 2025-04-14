@@ -10,7 +10,7 @@ const mensajeBienvenida = `
 *✨ Elige un número* y te asistiremos de inmediato
 
 ➯ *1.* Free Fire  
-➯ *2.*  
+➯ *2.* Netflix Premium
 ➯ *3.* Disney+ Premium  
 ➯ *4.* Max  
 ➯ *5.* Prime Video  
@@ -35,7 +35,7 @@ const mensajeBienvenida = `
 ➯ *24.* Monedas TikTok
 
 ➯ *Reclamo Netflix:*
-- 📸 Enviá código de tv + nombre y apellido.`;
+"📸 Enviá captura + tu nombre y apellido.";
 
 const formasPago = `
 
