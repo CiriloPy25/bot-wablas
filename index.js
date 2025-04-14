@@ -34,7 +34,7 @@ const mensajeBienvenida = `
 ➯ *23.* Tarjeta Virtual  
 ➯ *24.* Monedas TikTok
 
-➯ *Reclamo Netflix:*
+➯ *Reclamo:*
 "📸 Enviá captura + tu nombre y apellido."`;
 
 const formasPago = `
