@@ -80,7 +80,7 @@ const respuestas = {
 
 - No Incluye Espn
 - 20.000 Gs : 30 días
-- 45.000 Gs : 60 días${formasPago}`,
+- 35.000 Gs : 60 días${formasPago}`,
   
   "4": `*➯ Max:*
 - 20.000 Gs : 30 días
