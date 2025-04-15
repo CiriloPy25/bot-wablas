@@ -7,7 +7,7 @@ app.use(express.json());
 const mensajeBienvenida = `
 👋 ¡Bienvenido/a!
 
-*✨ Elige un número* y te asistiremos de inmediato
+*📋 Servicios disponibles:*
 
 ➯ *1.* Free Fire  
 ➯ *2.* Netflix Premium
@@ -34,8 +34,10 @@ const mensajeBienvenida = `
 ➯ *23.* Tarjeta Virtual  
 ➯ *24.* Monedas TikTok
 
-➯ *Reclamo:*
-"📸 Enviá captura + tu nombre y apellido."`;
+*🛠️ Para reclamos:*
+"📸 Enviá captura + tu nombre y apellido."
+
+✨ Escribí solo el número y te respondemos al instante 👆`;
 
 const formasPago = `
 
