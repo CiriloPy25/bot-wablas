@@ -37,7 +37,7 @@ const mensajeBienvenida = `
 *🛠️ Para reclamos:*
 "📸 Enviá captura + tu nombre y apellido."
 
-✨ Escribí solo el número y te respondemos al instante 👆`;
+*✨ Elige un número* y te asistiremos de inmediato 👆`;
 
 const formasPago = `
 
