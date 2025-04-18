@@ -5,12 +5,13 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 const mensajeBienvenida = `
-👋 *¡Bienvenido/a a Gamer Shop Paraguay!*
+👋 *¡👋 Hola, bienvenido/a!*
 
 *Elegí una opción para continuar:*
-🅰️ Ver servicios disponibles  
-🅱️ Renovar mi cuenta  
-🆎 Hacer un reclamo
+
+➤*A.* Ver servicios disponibles  
+➤*B.* Renovar mi cuenta  
+➤*C.* Hacer un reclamo
 
 ✍️ *Escribí la letra de la opción que querés* y te asistimos al instante ✅
 `;
@@ -60,7 +61,9 @@ const respuestas = {
 ➯ *21.* Roblox  
 ➯ *22.* 8 Ball Pool  
 ➯ *23.* Tarjeta Virtual  
-➯ *24.* Monedas TikTok`,
+➯ *24.* Monedas TikTok
+
+✍️ *Escribí el número del servicio que querés* para ver el precio y formas de pago.`,
 
   "b": `
 🔁 *Renovación de cuenta iniciada*.
@@ -86,7 +89,7 @@ const respuestas = {
 ✍️ *Escribí el número del servicio que querés renovar* para ver el precio y formas de pago.
 `,
 
-  "ab": `📢 Para reclamos, por favor enviá tu *nombre, apellido y una captura* del problema para ayudarte lo antes posible.`,
+  "c": `📢 Para reclamos, por favor enviá tu *nombre, apellido y una captura* del problema para ayudarte lo antes posible.`,
 
   // Desde aquí siguen los códigos del 1 al 24, ya existentes
   "1": `*➯ Diamantes Free Fire:*
