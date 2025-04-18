@@ -5,13 +5,13 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 const mensajeBienvenida = `
-👋 *¡👋 Hola, bienvenido/a!*
+👋 *¡Hola, bienvenido/a!*
 
 *Elegí una opción para continuar:*
 
-➤ *A.* Ver servicios disponibles  
-➤ *B.* Renovar mi cuenta  
-➤ *C.* Hacer un reclamo
+*A*➤ Ver servicios disponibles  
+*B*➤ Renovar mi cuenta  
+*C*➤ Hacer un reclamo
 
 ✍️ *Escribí la letra de la opción que querés* y te asistimos al instante ✅
 `;
