@@ -5,12 +5,40 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 const mensajeBienvenida = `
-👋 ¡Bienvenido/a!
+👋 *¡Bienvenido/a a Gamer Shop Paraguay!*
 
+*Elegí una opción para continuar:*
+🅰️ Ver servicios disponibles  
+🅱️ Renovar mi cuenta  
+🆎 Hacer un reclamo
+
+✍️ *Escribí la letra de la opción que querés* y te asistimos al instante ✅
+`;
+
+const formasPago = `
+💳 *Formas de Pago:*
+(*Giro* 🙅🏻‍♂️ no carga de billetera)
+
+- *Titular:* Cirilo Guillen
+- *C.I.:* 5578346
+- *Alias:* 5578346
+
+➯ Ueno Bank: 619196233  
+➯ Atlas: 1530937  
+➯ Banco Familiar: 81-245664  
+➯ Mango: 0972302296 - @ciriloguillen  
+➯ Tigo Money: 0982832010  
+➯ Personal Pay: 0972302296  
+➯ Claro: 0992598035  
+➯ Eko: 0992598035  
+➯ Wally: 0982832010`;
+
+const respuestas = {
+  "a": `
 *📋 Servicios disponibles:*
 
 ➯ *1.* Free Fire  
-➯ *2.* Netflix Premium
+➯ *2.* Netflix Premium  
 ➯ *3.* Disney+ Premium  
 ➯ *4.* Max  
 ➯ *5.* Prime Video  
@@ -32,33 +60,35 @@ const mensajeBienvenida = `
 ➯ *21.* Roblox  
 ➯ *22.* 8 Ball Pool  
 ➯ *23.* Tarjeta Virtual  
-➯ *24.* Monedas TikTok
+➯ *24.* Monedas TikTok`,
 
-*🛠️ Para reclamos:*
-"📸 Enviá captura + tu nombre y apellido."
+  "b": `
+🔁 *Renovación de cuenta iniciada*.
 
-*✨ Elige un número* y te asistiremos de inmediato 👆`;
+📋 *Servicios disponibles para renovar:*
 
-const formasPago = `
+➯ *2.* Netflix Premium  
+➯ *3.* Disney+ Premium  
+➯ *4.* Max  
+➯ *5.* Prime Video  
+➯ *6.* Paramount+  
+➯ *7.* Crunchyroll  
+➯ *8.* Spotify Premium  
+➯ *9.* YouTube Premium  
+➯ *10.* FlujoTV  
+➯ *11.* FénixTV  
+➯ *12.* Ib Player Pro  
+➯ *13.* IPTV Smarters  
+➯ *14.* Tigo Sports  
+➯ *15.* Apple TV  
+➯ *16.* Apple Music
 
-💳 *Formas de Pago:*
-(*Giro* 🙅🏻‍♂️ no carga de billetera)
+✍️ *Escribí el número del servicio que querés renovar* para ver el precio y formas de pago.
+`,
 
-- *Titular:* Cirilo Guillen
-- *C.I.:* 5578346
-- *Alias:* 5578346
+  "ab": `📢 Para reclamos, por favor enviá tu *nombre, apellido y una captura* del problema para ayudarte lo antes posible.`,
 
-➯ Ueno Bank: 619196233
-➯ Atlas: 1530937
-➯ Banco Familiar: 81-245664
-➯ Mango: 0972302296 - @ciriloguillen
-➯ Tigo Money: 0982832010
-➯ Personal Pay: 0972302296
-➯ Claro: 0992598035
-➯ Eko: 0992598035
-➯ Wally: 0982832010`;
-
-const respuestas = {
+  // Desde aquí siguen los códigos del 1 al 24, ya existentes
   "1": `*➯ Diamantes Free Fire:*
 - 10.000 Gs : 110
 - 25.000 Gs : 341
@@ -83,7 +113,7 @@ const respuestas = {
 - No Incluye Espn
 - 20.000 Gs : 30 días
 - 35.000 Gs : 60 días${formasPago}`,
-  
+
   "4": `*➯ Max:*
 - 20.000 Gs : 30 días
 - 35.000 Gs : 60 días${formasPago}`,
@@ -181,35 +211,32 @@ const respuestas = {
 - 93.000 Gs : 943 monedas
 - 102.000 Gs : 1037 monedas${formasPago}`
 };
+
 const ultimosSaludos = {};
 
 app.post("/", (req, res) => {
   const numero = req.body.phone;
   const mensaje = (req.body.message || "").toLowerCase().trim();
   const ahora = Date.now();
- const MILISEGUNDOS_EN_24H = 24 * 60 * 60 * 1000;
-  
+  const MILISEGUNDOS_EN_24H = 24 * 60 * 60 * 1000;
+
   const palabrasPago = ["forma de pago", "numero para giro", "número para giro", "para giro", "hacer giro", "hacer pago"];
 
-  // ✅ Enviar mensaje de bienvenida solo si pasaron más de 24h
   if (!ultimosSaludos[numero] || ahora - ultimosSaludos[numero] > MILISEGUNDOS_EN_24H) {
     ultimosSaludos[numero] = ahora;
     res.set("Content-Type", "text/plain");
     return res.send(mensajeBienvenida);
   }
 
-  // 💳 Enviar formas de pago si coincide
   if (palabrasPago.some(palabra => mensaje.includes(palabra))) {
     res.set("Content-Type", "text/plain");
     return res.send(formasPago);
   }
 
-  // 🔢 Enviar respuesta por número si coincide
   if (respuestas[mensaje]) {
     res.set("Content-Type", "text/plain");
     return res.send(respuestas[mensaje]);
   }
-
 });
 
 app.get("/", (req, res) => {
