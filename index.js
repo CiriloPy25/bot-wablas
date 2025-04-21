@@ -101,35 +101,43 @@ const respuestas = {
 - 325.000 Gs : 6160
 - 20.000 Gs : Vip Semanal
 - 75.000 Gs : Vip Mensual
-- 35.000 Gs : Pase de Nivel${formasPago}`,
+- 35.000 Gs : Pase de Nivel
+- 20.000 Gs : Pase Booyah${formasPago}`,
 
   "2": `*➯ Netflix Premium:*
 (Acceso por código)
+- 1 Dispositivo
 - 30.000 Gs : 30 días
 - 55.000 Gs : 60 días${formasPago}`,
 
   "3": `*➯ Disney+ Premium:*
 - Incluye Espn
+- 1 Dispositivo
 - 30.000 Gs : 30 días
 - 50.000 Gs : 60 días
 
 - No Incluye Espn
+- 1 Dispositivo
 - 20.000 Gs : 30 días
 - 35.000 Gs : 60 días${formasPago}`,
 
   "4": `*➯ Max:*
+- 1 Dispositivo
 - 20.000 Gs : 30 días
 - 35.000 Gs : 60 días${formasPago}`,
 
   "5": `*➯ Prime Video:*
+- 1 Dispositivo
 - 20.000 Gs : 30 días
 - 35.000 Gs : 60 días${formasPago}`,
 
   "6": `*➯ Paramount:*
+- 1 Dispositivo
 - 20.000 Gs : 30 días
 - 35.000 Gs : 60 días${formasPago}`,
 
   "7": `*➯ Crunchyroll:*
+- 1 Dispositivo
 - 15.000 Gs : 30 días
 - 25.000 Gs : 60 días${formasPago}`,
 
@@ -141,19 +149,33 @@ const respuestas = {
 - 20.000 Gs : 30 días
 - 35.000 Gs : 60 días${formasPago}`,
 
-  "10": `*➯ FlujoTv:*
+  "10": `*➯ FlujoTv Compartido:*
+- 1 Dispositivo
 - 30.000 Gs : 30 días
-- 50.000 Gs : 60 días${formasPago}`,
+- 50.000 Gs : 60 días
 
-  "11": `*➯ FénixTv:*
+*➯ FlujoTv Privado:*
+- 3 Dispositivo
+- 60.000 Gs : 30 días
+- 100.000 Gs : 60 días${formasPago}`,
+
+  "11": `*➯ FénixTv Compartido:*
+- 1 Dispositivo
 - 15.000 Gs : 30 días
-- 25.000 Gs : 60 días${formasPago}`,
+- 25.000 Gs : 60 días
+
+*➯ FénixTv Privado:*
+- 3 Dispositivo
+- 25.000 Gs : 30 días
+- 45.000 Gs : 60 días${formasPago}`,
 
   "12": `*➯ Ib Player Pro:*
+- 1 Dispositivo
 - 30.000 Gs : 30 días
 - 50.000 Gs : 60 días${formasPago}`,
 
   "13": `*➯ IPTV Smarters:*
+- 3 Dispositivo
 - 25.000 Gs : 30 días
 - 40.000 Gs : 60 días${formasPago}`,
 
