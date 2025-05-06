@@ -51,7 +51,7 @@ const respuestas = {
 ➯ *11.* FénixTV  
 ➯ *12.* Ib Player Pro  
 ➯ *13.* IPTV Smarters  
-➯ *14.*  
+➯ *14.* Tigo Sports
 ➯ *15.* Apple TV  
 ➯ *16.* Apple Music  
 ➯ *17.* Call of Duty Mobile  
