@@ -14,6 +14,18 @@ const mensajeBienvenida = `
 *C* ➤ Hacer un reclamo
 
 ✍️ *Escribí la letra de la opción que querés* y te asistimos al instante ✅
+
+*📢 ¡Actualización de precio - Tigo Sport App! ⚽📺*
+
+*🔒 Plan Privado*
+✅ Reproduce en 2 dispositivos
+💰 75.000 Gs
+
+*👥 Plan Compartido*
+✅ Reproduce en 1 dispositivo
+💰 40.000 Gs
+
+🔥 ¡Consultá y activá ya tu plan favorito! 📲
 `;
 
 const formasPago = `
@@ -180,8 +192,12 @@ const respuestas = {
 - 40.000 Gs : 60 días${formasPago}`,
 
   "14": `*➯ Tigo Sport App:*
-- 45.000 Gs : 30 días
-- 80.000 Gs : 60 días${formasPago}`,
+- Plan Privado : Reproduce en 2 dispositivos
+- 75.000 Gs : 30 días
+
+- Plan Compartido : Reproduce en 1 dispositivos
+- 40.000 Gs : 30 días
+- 75.000 Gs : 60 días${formasPago}`,
 
   "15": `*➯ Apple Tv:*
 - 30.000 Gs : 90 días${formasPago}`,
