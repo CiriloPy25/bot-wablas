@@ -13,8 +13,6 @@ const mensajeBienvenida = `
 *B* ➤ Renovar mi cuenta  
 *C* ➤ Hacer un reclamo
 
-✍️ *Escribí la letra de la opción que querés* y te asistimos al instante ✅
-
 *📢 ¡Actualización de precio - Tigo Sport App! ⚽📺*
 
 *🔒 Plan Privado*
@@ -26,7 +24,8 @@ const mensajeBienvenida = `
 💰 40.000 Gs
 
 🔥 ¡Consultá y activá ya tu plan favorito! 📲
-`;
+
+✍️ *Escribí la letra de la opción que querés* y te asistimos al instante ✅`;
 
 const formasPago = `
 💳 *Formas de Pago:*
