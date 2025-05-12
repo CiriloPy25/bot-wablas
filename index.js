@@ -17,11 +17,11 @@ const mensajeBienvenida = `
 
 *🔒 Plan Privado*
 ✅ Reproduce en 2 dispositivos
-💰 75.000 Gs
+💰 70.000 Gs
 
 *👥 Plan Compartido*
 ✅ Reproduce en 1 dispositivo
-💰 40.000 Gs
+💰 35.000 Gs
 
 🔥 ¡Consultá y activá ya tu plan favorito! 📲
 
@@ -192,11 +192,11 @@ const respuestas = {
 
   "14": `*➯ Tigo Sport App:*
 - Plan Privado : Reproduce en 2 dispositivos
-- 75.000 Gs : 30 días
+- 70.000 Gs : 30 días
 
 - Plan Compartido : Reproduce en 1 dispositivos
-- 40.000 Gs : 30 días
-- 75.000 Gs : 60 días${formasPago}`,
+- 35.000 Gs : 30 días
+- 65.000 Gs : 60 días${formasPago}`,
 
   "15": `*➯ Apple Tv:*
 - 30.000 Gs : 90 días${formasPago}`,
