@@ -17,7 +17,7 @@ const mensajeBienvenida = `
 
 *🔒 Plan Privado*
 ✅ Reproduce en 2 dispositivos
-💰 60.000 Gs
+💰 50.000 Gs
 
 *👥 Plan Compartido*
 ✅ Reproduce en 1 dispositivo
@@ -192,7 +192,7 @@ const respuestas = {
 
   "14": `*➯ Tigo Sport App:*
 - Plan Privado : Reproduce en 2 dispositivos
-- 60.000 Gs : 30 días
+- 50.000 Gs : 30 días
 
 - Plan Compartido : Reproduce en 1 dispositivos
 - 30.000 Gs : 30 días
