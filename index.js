@@ -13,18 +13,6 @@ const mensajeBienvenida = `
 *B* ➤ Renovar mi cuenta  
 *C* ➤ Hacer un reclamo
 
-*📢 ¡Actualización de precio - Tigo Sport App! ⚽📺*
-
-*🔒 Plan Privado*
-✅ Reproduce en 2 dispositivos
-💰 50.000 Gs
-
-*👥 Plan Compartido*
-✅ Reproduce en 1 dispositivo
-💰 30.000 Gs
-
-🔥 ¡Consultá y activá ya tu plan favorito! 📲
-
 ✍️ *Escribí la letra de la opción que querés* y te asistimos al instante ✅`;
 
 const formasPago = `
